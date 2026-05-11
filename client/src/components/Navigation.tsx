@@ -5,6 +5,7 @@ const navItems = [
   { label: "首頁", href: "#hero" },
   { label: "品牌故事", href: "#story" },
   { label: "商品", href: "#products" },
+  { label: "影片", href: "#videos" },
   { label: "關於", href: "#about" },
   { label: "聯繫", href: "#contact" },
 ];
