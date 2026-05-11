@@ -1,10 +1,25 @@
+/**
+ * YouTube Section - IngridCat Brand
+ * Design: Cosmic Mysticism dark theme
+ * Colors: Deep space black + Gold accent + Teal healing
+ * Fonts: Space Mono (headings) + Cormorant Garamond (body) + Noto Sans TC (Chinese)
+ */
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 
 const CHANNEL_URL = "https://www.youtube.com/@ingridflower8742";
 
-const videos = [
+interface Video {
+  id: string;
+  title: string;
+  duration: string;
+  views: string;
+  date: string;
+  series: string;
+}
+
+const videos: Video[] = [
   {
     id: "b6RfH5vNRKM",
     title: "英格貓的卡牌世界-五行系（下）五行合圖與納迦蛇神：序章與封存",
@@ -53,6 +68,22 @@ const videos = [
     date: "1 年前",
     series: "人生故事",
   },
+  {
+    id: "_zliI98tfkw",
+    title: "如果人生可以重來《如何放下過去、活出未來》端午尋親之旅NO.2",
+    duration: "10:07",
+    views: "4",
+    date: "1 年前",
+    series: "人生故事",
+  },
+  {
+    id: "cid5dkjKzvY",
+    title: "如果人生可以重來《如何放下過去、活出未來》端午尋親之旅NO.1",
+    duration: "11:54",
+    views: "5",
+    date: "1 年前",
+    series: "人生故事",
+  },
 ];
 
 export default function YouTubeSection() {
@@ -67,7 +98,7 @@ export default function YouTubeSection() {
       {/* Background */}
       <div className="absolute inset-0 bg-gradient-to-b from-[oklch(0.06_0.02_270)] via-[oklch(0.07_0.02_272)] to-[oklch(0.06_0.02_270)]" />
 
-      {/* Decorative elements */}
+      {/* Decorative lines */}
       <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-[oklch(0.25_0.03_275)] to-transparent" />
       <div className="absolute bottom-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-[oklch(0.25_0.03_275)] to-transparent" />
 
@@ -116,7 +147,6 @@ export default function YouTubeSection() {
             rel="noopener noreferrer"
             className="group inline-flex items-center gap-3 px-6 py-3 border border-[oklch(0.75_0.12_85/0.4)] rounded-full hover:border-[oklch(0.75_0.12_85)] hover:bg-[oklch(0.75_0.12_85/0.05)] transition-all duration-500"
           >
-            {/* YouTube icon */}
             <svg
               className="w-5 h-5"
               viewBox="0 0 24 24"
@@ -167,7 +197,6 @@ export default function YouTubeSection() {
                   className="absolute inset-0 w-full h-full"
                 />
               </div>
-              {/* Close button */}
               <button
                 onClick={() => setActiveVideo(null)}
                 className="mt-4 flex items-center gap-2 group"
@@ -205,7 +234,7 @@ export default function YouTubeSection() {
           ))}
         </div>
 
-        {/* Show more / Channel link */}
+        {/* Actions */}
         <div className="mt-12 flex flex-col sm:flex-row items-center justify-center gap-6">
           {!showAll && videos.length > 4 && (
             <button
@@ -255,7 +284,7 @@ function VideoCard({
   isPlaying,
   onPlay,
 }: {
-  video: (typeof videos)[0];
+  video: Video;
   index: number;
   isPlaying: boolean;
   onPlay: () => void;
@@ -282,7 +311,6 @@ function VideoCard({
           alt={video.title}
           className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
           onError={(e) => {
-            // Fallback to hqdefault if maxresdefault is not available
             (e.target as HTMLImageElement).src = `https://img.youtube.com/vi/${video.id}/hqdefault.jpg`;
           }}
         />
