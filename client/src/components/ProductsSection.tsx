@@ -1,10 +1,17 @@
+/**
+ * Products Section - IngridCat
+ * Design: Cosmic Mysticism — Active Theory style large text product list
+ * Now with links to individual product detail pages
+ */
 import { motion, AnimatePresence } from "framer-motion";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { useState } from "react";
+import { Link } from "wouter";
 
 const products = [
   {
     id: 1,
+    slug: "spiritual-picture-book",
     name: "心靈繪本",
     nameEn: "Spiritual Picture Book",
     description:
@@ -14,6 +21,7 @@ const products = [
   },
   {
     id: 2,
+    slug: "personal-autobiography",
     name: "個人自傳書",
     nameEn: "Personal Autobiography",
     description:
@@ -23,6 +31,7 @@ const products = [
   },
   {
     id: 3,
+    slug: "cosmic-oracle-cards",
     name: "宇宙環星神諭卡",
     nameEn: "Cosmic Oracle Cards",
     description:
@@ -32,6 +41,7 @@ const products = [
   },
   {
     id: 4,
+    slug: "qi-men-dun-jia-cards",
     name: "奇門遁甲五氣秘笈",
     nameEn: "Qi Men Dun Jia Cards",
     description:
@@ -81,8 +91,13 @@ export default function ProductsSection() {
             </h2>
           </div>
           <p
-            className="text-base max-w-md"
-            style={{ color: "oklch(0.55 0.02 270)", lineHeight: 1.8 }}
+            className="max-w-md text-sm leading-relaxed"
+            style={{
+              fontFamily: "'Cormorant Garamond', serif",
+              color: "oklch(0.5 0.02 270)",
+              fontSize: "1.05rem",
+              lineHeight: 1.8,
+            }}
           >
             每一件商品都是一個溫柔的陪伴工具，幫助你在迷惘中找到方向。
           </p>
@@ -157,85 +172,102 @@ function ProductItem({
       onMouseLeave={onLeave}
       className="group border-t border-[oklch(0.2_0.03_275)] py-8 md:py-12 cursor-pointer transition-all duration-500"
     >
-      <div className="flex flex-col md:flex-row md:items-center gap-4 md:gap-8">
-        {/* Number */}
-        <span
-          className="text-xs tracking-[0.3em] w-12 shrink-0"
-          style={{ fontFamily: "'Space Mono', monospace", color: "oklch(0.4 0.02 270)" }}
-        >
-          {String(index + 1).padStart(2, "0")}
-        </span>
-
-        {/* Product name - large text */}
-        <div className="flex-1">
-          <h3
-            className={`text-3xl md:text-5xl lg:text-6xl tracking-[0.03em] uppercase transition-all duration-500 ${
-              isActive ? "translate-x-4" : ""
-            }`}
-            style={{
-              fontFamily: "'Space Mono', monospace",
-              fontWeight: 700,
-              color: isActive ? "oklch(0.92 0.01 80)" : "oklch(0.45 0.02 270)",
-              WebkitTextStroke: isActive ? "none" : "1px oklch(0.35 0.02 270)",
-              WebkitTextFillColor: isActive ? "oklch(0.92 0.01 80)" : "transparent",
-              transition: "all 0.5s ease",
-            }}
+      <Link href={`/product/${product.slug}`} className="block">
+        <div className="flex flex-col md:flex-row md:items-center gap-4 md:gap-8">
+          {/* Number */}
+          <span
+            className="text-xs tracking-[0.3em] w-12 shrink-0"
+            style={{ fontFamily: "'Space Mono', monospace", color: "oklch(0.4 0.02 270)" }}
           >
-            {product.name}
-          </h3>
+            {String(index + 1).padStart(2, "0")}
+          </span>
 
-          {/* Mobile image */}
-          <div className="lg:hidden mt-4">
-            <img
-              src={product.image}
-              alt={product.name}
-              className="w-full max-w-sm rounded-sm"
-            />
+          {/* Product name - large text */}
+          <div className="flex-1">
+            <h3
+              className={`text-3xl md:text-5xl lg:text-6xl tracking-[0.03em] uppercase transition-all duration-500 ${
+                isActive ? "translate-x-4" : ""
+              }`}
+              style={{
+                fontFamily: "'Space Mono', monospace",
+                fontWeight: 700,
+                color: isActive ? "oklch(0.92 0.01 80)" : "oklch(0.45 0.02 270)",
+                WebkitTextStroke: isActive ? "none" : "1px oklch(0.35 0.02 270)",
+                WebkitTextFillColor: isActive ? "oklch(0.92 0.01 80)" : "transparent",
+                transition: "all 0.5s ease",
+              }}
+            >
+              {product.name}
+            </h3>
+
+            {/* Mobile image */}
+            <div className="lg:hidden mt-4">
+              <img
+                src={product.image}
+                alt={product.name}
+                className="w-full max-w-sm rounded-sm"
+              />
+            </div>
+
+            {/* Description - shows on hover/active */}
+            <motion.div
+              initial={false}
+              animate={{
+                height: isActive ? "auto" : 0,
+                opacity: isActive ? 1 : 0,
+              }}
+              transition={{ duration: 0.4 }}
+              className="overflow-hidden"
+            >
+              <p
+                className="mt-4 text-sm md:text-base max-w-xl leading-relaxed"
+                style={{ color: "oklch(0.6 0.01 80)" }}
+              >
+                {product.description}
+              </p>
+              <span
+                className="inline-flex items-center gap-2 mt-3 text-xs tracking-[0.2em] uppercase"
+                style={{ fontFamily: "'Space Mono', monospace", color: "oklch(0.75 0.12 85)" }}
+              >
+                查看詳情
+                <svg
+                  className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  strokeWidth="1.5"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
+              </span>
+            </motion.div>
           </div>
 
-          {/* Description - shows on hover/active */}
-          <motion.div
-            initial={false}
-            animate={{
-              height: isActive ? "auto" : 0,
-              opacity: isActive ? 1 : 0,
-            }}
-            transition={{ duration: 0.4 }}
-            className="overflow-hidden"
+          {/* Tag */}
+          <span
+            className={`text-xs tracking-[0.2em] uppercase px-3 py-1 border rounded-full shrink-0 transition-all duration-500 ${
+              isActive
+                ? "border-[oklch(0.75_0.12_85/0.5)] text-[oklch(0.75_0.12_85)]"
+                : "border-[oklch(0.25_0.03_275)] text-[oklch(0.4_0.02_270)]"
+            }`}
+            style={{ fontFamily: "'Space Mono', monospace" }}
           >
-            <p
-              className="mt-4 text-sm md:text-base max-w-xl leading-relaxed"
-              style={{ color: "oklch(0.6 0.01 80)" }}
-            >
-              {product.description}
-            </p>
-          </motion.div>
+            {product.tag}
+          </span>
+
+          {/* English name */}
+          <span
+            className="hidden md:block text-xs tracking-[0.15em] uppercase w-40 text-right shrink-0"
+            style={{
+              fontFamily: "'Space Mono', monospace",
+              color: isActive ? "oklch(0.55 0.02 270)" : "oklch(0.3 0.02 270)",
+              transition: "color 0.5s ease",
+            }}
+          >
+            {product.nameEn}
+          </span>
         </div>
-
-        {/* Tag */}
-        <span
-          className={`text-xs tracking-[0.2em] uppercase px-3 py-1 border rounded-full shrink-0 transition-all duration-500 ${
-            isActive
-              ? "border-[oklch(0.75_0.12_85/0.5)] text-[oklch(0.75_0.12_85)]"
-              : "border-[oklch(0.25_0.03_275)] text-[oklch(0.4_0.02_270)]"
-          }`}
-          style={{ fontFamily: "'Space Mono', monospace" }}
-        >
-          {product.tag}
-        </span>
-
-        {/* English name */}
-        <span
-          className="hidden md:block text-xs tracking-[0.15em] uppercase w-40 text-right shrink-0"
-          style={{
-            fontFamily: "'Space Mono', monospace",
-            color: isActive ? "oklch(0.55 0.02 270)" : "oklch(0.3 0.02 270)",
-            transition: "color 0.5s ease",
-          }}
-        >
-          {product.nameEn}
-        </span>
-      </div>
+      </Link>
     </motion.div>
   );
 }

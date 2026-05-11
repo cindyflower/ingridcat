@@ -1,28 +1,42 @@
+/**
+ * Product Showcase - IngridCat
+ * Design: Cosmic Mysticism — Alternating image-text layout
+ * Now with links to individual product detail pages
+ */
 import { motion } from "framer-motion";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
+import { Link } from "wouter";
 
 const showcaseItems = [
   {
+    slug: "spiritual-picture-book",
     image: "/manus-storage/product_book_spiritual_39615334.png",
     name: "心靈繪本",
+    nameEn: "Spiritual Picture Book",
     subtitle: "以溫暖的插畫與文字，陪伴你走過內心的風景",
     align: "left" as const,
   },
   {
+    slug: "personal-autobiography",
     image: "/manus-storage/product_autobiography_26ab117f.png",
     name: "個人自傳書",
+    nameEn: "Personal Autobiography",
     subtitle: "一本屬於你的生命之書，記錄你的故事與成長",
     align: "right" as const,
   },
   {
+    slug: "cosmic-oracle-cards",
     image: "/manus-storage/product_oracle_cards_417dfb1d.png",
     name: "宇宙環星神諭卡",
+    nameEn: "Cosmic Oracle Cards",
     subtitle: "80 張原創卡牌，結合東西方神諭智慧",
     align: "left" as const,
   },
   {
+    slug: "qi-men-dun-jia-cards",
     image: "/manus-storage/product_qimen_cards_f10ee64f.png",
     name: "奇門遁甲五氣秘笈",
+    nameEn: "Qi Men Dun Jia Cards",
     subtitle: "結合古代天文地理與陰陽五行的占卜工具",
     align: "right" as const,
   },
@@ -61,7 +75,7 @@ function ShowcaseCard({
       className={`flex flex-col ${isLeft ? "lg:flex-row" : "lg:flex-row-reverse"} items-center gap-10 lg:gap-20`}
     >
       {/* Image */}
-      <div className="lg:w-3/5 relative group">
+      <Link href={`/product/${item.slug}`} className="lg:w-3/5 relative group block">
         <div className="relative overflow-hidden rounded-sm">
           <motion.img
             src={item.image}
@@ -72,7 +86,14 @@ function ShowcaseCard({
             }}
           />
           {/* Hover overlay */}
-          <div className="absolute inset-0 bg-gradient-to-t from-[oklch(0.06_0.02_270/0.5)] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+          <div className="absolute inset-0 bg-[oklch(0.06_0.02_270/0)] group-hover:bg-[oklch(0.06_0.02_270/0.3)] transition-all duration-500 flex items-center justify-center">
+            <span
+              className="opacity-0 group-hover:opacity-100 transition-opacity duration-500 text-xs tracking-[0.3em] uppercase px-6 py-3 border border-[oklch(0.75_0.12_85/0.6)] rounded-full"
+              style={{ fontFamily: "'Space Mono', monospace", color: "oklch(0.75 0.12 85)" }}
+            >
+              查看詳情
+            </span>
+          </div>
         </div>
         {/* Decorative corner */}
         <div
@@ -82,7 +103,7 @@ function ShowcaseCard({
             borderLeft: isLeft ? "none" : "1px solid oklch(0.75 0.12 85 / 0.2)",
           }}
         />
-      </div>
+      </Link>
 
       {/* Text */}
       <div className={`lg:w-2/5 ${isLeft ? "lg:text-left" : "lg:text-right"}`}>
@@ -93,7 +114,7 @@ function ShowcaseCard({
           {String(index + 1).padStart(2, "0")}
         </span>
         <h3
-          className="text-3xl md:text-4xl lg:text-5xl tracking-[0.03em] mb-6"
+          className="text-3xl md:text-4xl lg:text-5xl tracking-[0.03em] mb-3"
           style={{
             fontFamily: "'Space Mono', monospace",
             fontWeight: 700,
@@ -103,7 +124,13 @@ function ShowcaseCard({
           {item.name}
         </h3>
         <p
-          className="text-lg leading-relaxed"
+          className="text-xs tracking-[0.2em] uppercase mb-4"
+          style={{ fontFamily: "'Space Mono', monospace", color: "oklch(0.45 0.02 270)" }}
+        >
+          {item.nameEn}
+        </p>
+        <p
+          className="text-lg leading-relaxed mb-6"
           style={{
             fontFamily: "'Cormorant Garamond', serif",
             color: "oklch(0.6 0.01 80)",
@@ -115,13 +142,10 @@ function ShowcaseCard({
         </p>
 
         {/* CTA */}
-        <button
-          className="mt-8 group/btn flex items-center gap-3"
+        <Link
+          href={`/product/${item.slug}`}
+          className="group/btn inline-flex items-center gap-3 px-6 py-3 border border-[oklch(0.3_0.03_275)] rounded-full hover:border-[oklch(0.75_0.12_85/0.5)] hover:bg-[oklch(0.75_0.12_85/0.05)] transition-all duration-500"
           style={{ marginLeft: isLeft ? 0 : "auto" }}
-          onClick={() => {
-            const el = document.querySelector("#contact");
-            if (el) el.scrollIntoView({ behavior: "smooth" });
-          }}
         >
           <span
             className="text-xs tracking-[0.3em] uppercase group-hover/btn:text-[oklch(0.75_0.12_85)] transition-colors"
@@ -129,8 +153,16 @@ function ShowcaseCard({
           >
             了解更多
           </span>
-          <span className="w-8 h-[1px] bg-[oklch(0.75_0.12_85/0.4)] group-hover/btn:w-14 transition-all duration-500" />
-        </button>
+          <svg
+            className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform duration-300"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="oklch(0.75 0.12 85)"
+            strokeWidth="1.5"
+          >
+            <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+          </svg>
+        </Link>
       </div>
     </motion.div>
   );
