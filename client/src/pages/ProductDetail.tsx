@@ -43,7 +43,7 @@ export default function ProductDetail() {
         }}
       >
         <Link
-          href="/#products"
+          href="/products"
           className="group flex items-center gap-3 transition-all duration-300"
         >
           <svg
@@ -440,7 +440,7 @@ export default function ProductDetail() {
               「每一件商品都是一個溫柔的陪伴工具」
             </p>
             <Link
-              href="/#products"
+              href="/products"
               className="inline-flex items-center gap-3 text-xs tracking-[0.3em] uppercase hover:text-[oklch(0.75_0.12_85)] transition-colors duration-300 group"
               style={{ fontFamily: "'Space Mono', monospace", color: "oklch(0.5 0.02 270)" }}
             >
