@@ -1,6 +1,8 @@
 import { motion } from "framer-motion";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 
+const storageBase = `${import.meta.env.BASE_URL}manus-storage`;
+
 export default function StorySection() {
   const { ref: titleRef, isVisible: titleVisible } = useScrollReveal(0.2);
   const { ref: contentRef, isVisible: contentVisible } = useScrollReveal(0.15);
@@ -113,7 +115,7 @@ export default function StorySection() {
             <div className="relative">
               <div className="aspect-[16/10] rounded-sm overflow-hidden">
                 <img
-                  src="/manus-storage/founder_portrait_fc550504.png"
+                  src={`${storageBase}/founder_portrait_fc550504.png`}
                   alt="IngridCat 品牌故事"
                   className="w-full h-full object-cover"
                 />

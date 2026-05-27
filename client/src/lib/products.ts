@@ -28,6 +28,8 @@ export interface Product {
   relatedIds: number[];
 }
 
+const storageBase = `${import.meta.env.BASE_URL}manus-storage`;
+
 export const products: Product[] = [
   {
     id: 1,
@@ -44,7 +46,7 @@ export const products: Product[] = [
       "https://d2xsxph8kpxj0f.cloudfront.net/310519663149097567/f4dg2EnJEReuh6Q48oQ8j3/detail_book_scene-b3dhVtAa9h6Fgb5ZnG6SnX.webp",
     detailImage:
       "https://d2xsxph8kpxj0f.cloudfront.net/310519663149097567/f4dg2EnJEReuh6Q48oQ8j3/detail_book_scene-mihx7GiXUnmdm5gXbWNZrE.png",
-    productImage: "/manus-storage/product_book_spiritual_39615334.png",
+    productImage: `${storageBase}/product_book_spiritual_39615334.png`,
     features: [
       "手繪水彩風格插畫，每一幅都蘊含療癒能量",
       "結合心理學與靈性智慧的故事敘事",
@@ -92,7 +94,7 @@ export const products: Product[] = [
       "https://d2xsxph8kpxj0f.cloudfront.net/310519663149097567/f4dg2EnJEReuh6Q48oQ8j3/detail_autobiography_scene-LnKXrnZguUpFS59suwKi5r.webp",
     detailImage:
       "https://d2xsxph8kpxj0f.cloudfront.net/310519663149097567/f4dg2EnJEReuh6Q48oQ8j3/detail_autobiography_scene-YAvqCTMxoKHogwhyj3se2v.png",
-    productImage: "/manus-storage/product_autobiography_26ab117f.png",
+    productImage: `${storageBase}/product_autobiography_26ab117f.png`,
     features: [
       "52 週引導式書寫練習，循序漸進探索自我",
       "結合正念冥想與反思日記的獨特方法",
@@ -140,7 +142,7 @@ export const products: Product[] = [
       "https://d2xsxph8kpxj0f.cloudfront.net/310519663149097567/f4dg2EnJEReuh6Q48oQ8j3/detail_oracle_spread-W5eg4uqMiPwBzgWXpXoeUQ.webp",
     detailImage:
       "https://d2xsxph8kpxj0f.cloudfront.net/310519663149097567/f4dg2EnJEReuh6Q48oQ8j3/detail_oracle_spread-QFZa2KDrXHtwZimTAQE7SB.png",
-    productImage: "/manus-storage/product_oracle_cards_417dfb1d.png",
+    productImage: `${storageBase}/product_oracle_cards_417dfb1d.png`,
     features: [
       "80 張全原創手繪卡牌，融合東西方神秘學符號",
       "附贈完整牌義解說書與多種牌陣教學",
@@ -188,7 +190,7 @@ export const products: Product[] = [
       "https://d2xsxph8kpxj0f.cloudfront.net/310519663149097567/f4dg2EnJEReuh6Q48oQ8j3/detail_qimen_spread-97KWN4Zj6XNkKoYUwaffR4.webp",
     detailImage:
       "https://d2xsxph8kpxj0f.cloudfront.net/310519663149097567/f4dg2EnJEReuh6Q48oQ8j3/detail_qimen_spread-Q34MfqRXAE4xmkVbg3B5Ft.png",
-    productImage: "/manus-storage/product_qimen_cards_f10ee64f.png",
+    productImage: `${storageBase}/product_qimen_cards_f10ee64f.png`,
     features: [
       "融合奇門遁甲、天文地理與陰陽五行的獨創系統",
       "具有時間軸元素，可進行時空維度的解讀",

@@ -1,6 +1,8 @@
 import { motion } from "framer-motion";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 
+const storageBase = `${import.meta.env.BASE_URL}manus-storage`;
+
 const values = [
   {
     icon: "✦",
@@ -41,7 +43,7 @@ export default function AboutSection() {
       <div
         className="absolute inset-0 bg-cover bg-center"
         style={{
-          backgroundImage: "url('/manus-storage/about_bg_8ac37495.png')",
+          backgroundImage: `url('${storageBase}/about_bg_8ac37495.png')`,
           filter: "brightness(0.2) saturate(0.6)",
         }}
       />

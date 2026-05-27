@@ -2,6 +2,8 @@ import { motion } from "framer-motion";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { toast } from "sonner";
 
+const storageBase = `${import.meta.env.BASE_URL}manus-storage`;
+
 const footerSocials = [
   {
     name: "Instagram",
@@ -67,7 +69,7 @@ export default function Footer() {
           {/* Logo & brand */}
           <div className="flex items-center gap-3">
             <img
-              src="/manus-storage/logo_ingridcat_ebb9230c.png"
+              src={`${storageBase}/logo_ingridcat_ebb9230c.png`}
               alt="IngridCat"
               className="w-8 h-8 object-contain"
             />

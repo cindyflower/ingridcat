@@ -7,10 +7,12 @@ import { motion } from "framer-motion";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { Link } from "wouter";
 
+const storageBase = `${import.meta.env.BASE_URL}manus-storage`;
+
 const showcaseItems = [
   {
     slug: "spiritual-picture-book",
-    image: "/manus-storage/product_book_spiritual_39615334.png",
+    image: `${storageBase}/product_book_spiritual_39615334.png`,
     name: "心靈繪本",
     nameEn: "Spiritual Picture Book",
     subtitle: "以溫暖的插畫與文字，陪伴你走過內心的風景",
@@ -18,7 +20,7 @@ const showcaseItems = [
   },
   {
     slug: "personal-autobiography",
-    image: "/manus-storage/product_autobiography_26ab117f.png",
+    image: `${storageBase}/product_autobiography_26ab117f.png`,
     name: "個人自傳書",
     nameEn: "Personal Autobiography",
     subtitle: "一本屬於你的生命之書，記錄你的故事與成長",
@@ -26,7 +28,7 @@ const showcaseItems = [
   },
   {
     slug: "cosmic-oracle-cards",
-    image: "/manus-storage/product_oracle_cards_417dfb1d.png",
+    image: `${storageBase}/product_oracle_cards_417dfb1d.png`,
     name: "宇宙環星神諭卡",
     nameEn: "Cosmic Oracle Cards",
     subtitle: "80 張原創卡牌，結合東西方神諭智慧",
@@ -34,7 +36,7 @@ const showcaseItems = [
   },
   {
     slug: "qi-men-dun-jia-cards",
-    image: "/manus-storage/product_qimen_cards_f10ee64f.png",
+    image: `${storageBase}/product_qimen_cards_f10ee64f.png`,
     name: "奇門遁甲五氣秘笈",
     nameEn: "Qi Men Dun Jia Cards",
     subtitle: "結合古代天文地理與陰陽五行的占卜工具",
