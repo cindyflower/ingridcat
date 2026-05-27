@@ -3,7 +3,10 @@ import react from "@vitejs/plugin-react";
 import path from "node:path";
 import { defineConfig } from "vite";
 
+const isGithubActions = process.env.GITHUB_ACTIONS === "true";
+
 export default defineConfig({
+  base: isGithubActions ? "/ingridcat/" : "/",
   plugins: [react(), tailwindcss()],
   resolve: {
     alias: {
