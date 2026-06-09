@@ -43,7 +43,7 @@ export default function AboutSection() {
       <div
         className="absolute inset-0 bg-cover bg-center"
         style={{
-          backgroundImage: `url('${storageBase}/about_bg_8ac37495_385805a5.png')`,
+          backgroundImage: `url('${storageBase}/about_bg_6b71a608.png')`,
           filter: "brightness(0.2) saturate(0.6)",
         }}
       />

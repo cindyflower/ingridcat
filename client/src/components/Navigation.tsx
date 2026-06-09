@@ -73,7 +73,7 @@ export default function Navigation() {
               className="flex items-center gap-3 group"
             >
               <img
-                src={`${storageBase}/logo_ingridcat_ebb9230c_ed3f13a7.png`}
+                src={`${storageBase}/logo_ingridcat_bfed9a29.png`}
                 alt="IngridCat"
                 className="w-10 h-10 object-contain"
               />
