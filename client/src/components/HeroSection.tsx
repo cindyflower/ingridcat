@@ -12,7 +12,7 @@ export default function HeroSection() {
       <div
         className="absolute inset-0 bg-cover bg-center"
         style={{
-          backgroundImage: `url('${storageBase}/hero_bg_2a0584d3.png')`,
+          backgroundImage: `url('${storageBase}/hero_bg_2a0584d3_2a1c5e7f.png')`,
           filter: "brightness(0.35) saturate(0.8)",
         }}
       />
@@ -30,7 +30,7 @@ export default function HeroSection() {
           className="mb-8"
         >
           <img
-            src={`${storageBase}/logo_ingridcat_ebb9230c.png`}
+            src={`${storageBase}/logo_ingridcat_ebb9230c_ed3f13a7.png`}
             alt="IngridCat Logo"
             className="w-32 h-32 md:w-44 md:h-44 mx-auto object-contain drop-shadow-[0_0_40px_oklch(0.75_0.12_85/0.3)]"
           />

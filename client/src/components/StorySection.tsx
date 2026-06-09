@@ -115,7 +115,7 @@ export default function StorySection() {
             <div className="relative">
               <div className="aspect-[16/10] rounded-sm overflow-hidden">
                 <img
-                  src={`${storageBase}/founder_portrait_fc550504.png`}
+                  src={`${storageBase}/founder_portrait_fc550504_14550b2e.png`}
                   alt="IngridCat 品牌故事"
                   className="w-full h-full object-cover"
                 />

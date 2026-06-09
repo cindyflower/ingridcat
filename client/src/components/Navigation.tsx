@@ -14,6 +14,7 @@ const navItems: NavItem[] = [
   { label: "首頁", href: "#hero" },
   { label: "品牌故事", href: "#story" },
   { label: "商品", href: "/products", isRoute: true },
+  { label: "抽牌", href: "/card-draw", isRoute: true },
   { label: "影片", href: "#videos" },
   { label: "關於", href: "#about" },
   { label: "聯繫", href: "#contact" },
@@ -72,7 +73,7 @@ export default function Navigation() {
               className="flex items-center gap-3 group"
             >
               <img
-                src={`${storageBase}/logo_ingridcat_ebb9230c.png`}
+                src={`${storageBase}/logo_ingridcat_ebb9230c_ed3f13a7.png`}
                 alt="IngridCat"
                 className="w-10 h-10 object-contain"
               />

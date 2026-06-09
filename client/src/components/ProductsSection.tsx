@@ -18,7 +18,7 @@ const products = [
     nameEn: "Spiritual Picture Book",
     description:
       "以溫暖的插畫與文字，陪伴你走過內心的風景。每一頁都是一次與自己的對話，在故事中找到共鳴與力量。",
-    image: `${storageBase}/product_book_spiritual_39615334.png`,
+    image: `${storageBase}/product_book_spiritual_39615334_4775961e.png`,
     tag: "療癒閱讀",
   },
   {
@@ -28,7 +28,7 @@ const products = [
     nameEn: "Personal Autobiography",
     description:
       "一本屬於你的生命之書。透過引導式書寫，記錄你的故事、情緒與成長，將人生的每個篇章化為珍貴的文字。",
-    image: `${storageBase}/product_autobiography_26ab117f.png`,
+    image: `${storageBase}/product_autobiography_26ab117f_8f37eb1d.png`,
     tag: "書寫療癒",
   },
   {
@@ -38,7 +38,7 @@ const products = [
     nameEn: "Cosmic Oracle Cards",
     description:
       "80 張原創神諭卡牌，結合東西方的神諭智慧，代表宇宙要傳達的知識。宇宙環星下的靈魂低語，引導你聆聽內在的聲音。",
-    image: `${storageBase}/product_oracle_cards_417dfb1d.png`,
+    image: `${storageBase}/product_oracle_cards_417dfb1d_fc7fe853.png`,
     tag: "占卜工具",
   },
   {
@@ -48,7 +48,7 @@ const products = [
     nameEn: "Qi Men Dun Jia Cards",
     description:
       "結合東方古代天文、地理和陰陽五行與易經的底層邏輯，具有時間軸的元素。以古老智慧解讀當下，指引未來方向。",
-    image: `${storageBase}/product_qimen_cards_f10ee64f.png`,
+    image: `${storageBase}/product_qimen_cards_f10ee64f_5d9674f0.png`,
     tag: "占卜工具",
   },
 ];

@@ -7,6 +7,7 @@ import { ThemeProvider } from "./contexts/ThemeContext";
 import Home from "./pages/Home";
 import ProductDetail from "./pages/ProductDetail";
 import ProductsPage from "./pages/ProductsPage";
+import CardDrawPage from "./pages/CardDrawPage";
 
 
 function Router() {
@@ -15,6 +16,7 @@ function Router() {
       <Route path={"/"} component={Home} />
       <Route path="/products" component={ProductsPage} />
       <Route path="/product/:slug" component={ProductDetail} />
+      <Route path="/card-draw" component={CardDrawPage} />
       <Route path={"/404"} component={NotFound} />
       <Route component={NotFound} />
     </Switch>
