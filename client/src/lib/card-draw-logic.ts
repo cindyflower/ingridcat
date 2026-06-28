@@ -11,6 +11,7 @@ export interface CardData {
   image: string;
   backImage: string;
   keywords: string[];
+  basicMeaning?: string; // 基本牌義（三行詩句）
   meaning: {
     upright: string;
     reversed?: string;

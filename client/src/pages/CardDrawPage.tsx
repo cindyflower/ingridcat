@@ -401,9 +401,32 @@ export default function CardDrawPage() {
                         )}
                       </h3>
 
+                      {/* 基本牌義（三行詩句）— 主要解讀文字 */}
+                      {drawn.card.basicMeaning && (
+                        <div className="mt-4 space-y-1">
+                          {drawn.card.basicMeaning.split(/\s{2,}|(?<=[。\uff01\uff1f])/).length > 1
+                            ? drawn.card.basicMeaning.split(/\s{2,}/).map((line, idx) => (
+                                <p key={idx} className="text-white/90 leading-relaxed text-sm md:text-base font-serif">
+                                  {line}
+                                </p>
+                              ))
+                            : <p className="text-white/90 leading-relaxed text-sm md:text-base font-serif">
+                                {drawn.card.basicMeaning}
+                              </p>
+                          }
+                        </div>
+                      )}
+
+                      {/* 正位/逆位關鍵詞標籤 */}
                       {drawn.card.keywords.length > 0 && (
-                        <div className="flex gap-2 mt-3 flex-wrap">
-                          {drawn.card.keywords.map((kw) => (
+                        <div className="flex gap-2 mt-4 flex-wrap">
+                          <span className="text-xs text-white/40 self-center mr-1">
+                            {drawn.isReversed ? "逆位" : "正位"}
+                          </span>
+                          {(drawn.isReversed
+                            ? (drawn.card.meaning.reversed || "").split(" ").filter(Boolean)
+                            : drawn.card.keywords
+                          ).map((kw) => (
                             <span
                               key={kw}
                               className={`text-xs px-2.5 py-1 rounded-full border ${deck.borderClass} ${deck.accentClass} bg-white/5`}
@@ -414,11 +437,14 @@ export default function CardDrawPage() {
                         </div>
                       )}
 
-                      <p className="mt-4 text-white/80 leading-relaxed text-sm md:text-base">
-                        {drawn.isReversed
-                          ? drawn.card.meaning.reversed
-                          : drawn.card.meaning.upright}
-                      </p>
+                      {/* 沒有 basicMeaning 時的 fallback（奇門遁甲牌組） */}
+                      {!drawn.card.basicMeaning && (
+                        <p className="mt-4 text-white/80 leading-relaxed text-sm md:text-base">
+                          {drawn.isReversed
+                            ? drawn.card.meaning.reversed
+                            : drawn.card.meaning.upright}
+                        </p>
+                      )}
 
                       {drawn.card.message && (
                         <blockquote className={`mt-4 pl-4 border-l-2 ${deck.accentClass.replace("text-", "border-")} text-sm italic text-white/50`}>
